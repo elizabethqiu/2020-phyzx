@@ -1,16 +1,12 @@
-// This line MUST be first, for discord.js to read the process envs!
 require('dotenv').config(); 
 const Discord = require("discord.js");
-// const config = require("./config.json");
 const client = new Discord.Client();
-// client.login(config.BOT_TOKEN);
+client.login(process.env.DISCORD_BOT);
 
-const Pool = require('pg').Pool;
-
+const Pool = require('pg').Pool; // pool connects to database via databaseurl stored on heroku
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL
 });
-
 
 
 client.on("ready", () => {
@@ -25,12 +21,12 @@ client.on("ready", () => {
             return console.error( 
                 'Error executing query', err.stack) 
         } 
-        console.log("Connected to Database !") 
+        console.log("Connected to Database!") 
     }); 
   });
   console.log("I am ready!"); 
 });
-
+////////////////////////////////////// left off here
 client.on("message", message => {
   if (message.author.bot) return;
   // The process.env.PREFIX is your bot's prefix in this case.
