@@ -72,12 +72,12 @@ client.on("message", message => {
         // Send the message to that room
           const channel = client.channels.cache.get('781548324628463617');
           channel.send(question);
-          /* var emojis = ['🎉','🧲','⚛️','🛠️','👌','🙊','👏','🙌','✌','🙏','👀','🤩','😎','😄','😳','😩','🥺','😀','😏','😤','🤔','😅','🤣','😁','😋','🥰','🥵','😱','👍','💯','✅','💬'];
-          */
+          var emojis = ['🎉','🧲','⚛️','🛠️','👌','🙊','👏','🙌','✌','🙏','👀','🤩','😎','😄','😳','😩','🥺','😀','😏','😤','🤔','😅','🤣','😁','😋','🥰','🥵','😱','👍','💯','✅','💬'];
+          
           var text = "Message sent ";
-          //var choose = Math.floor(Math.random() * Math.floor(emojis.length));
+          var choose = Math.floor(Math.random() * Math.floor(emojis.length));
           //console.log("Random number: " + choose);
-          message.channel.send(text + ":magnet:");
+          message.channel.send(text + emojis[choose]);
           
         //Start the upload process
         /*
