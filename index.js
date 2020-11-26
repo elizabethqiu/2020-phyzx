@@ -75,7 +75,8 @@ client.on("message", message => {
           var emojis = ['🎉','🧲','⚛️','🛠️','👌','🙊','👏','🙌','✌','🙏','👀','🤩','😎','😄','😳','😩','🥺','😀','😏','😤','🤔','😅','🤣','😁','😋','🥰','🥵','😱','👍','💯','✅','💬'];
           var message = "Message sent ";
           var choose = Math.floor(Math.random() * Math.floor(emojis.length));
-          message.channel.send(message + emojis[choose]);
+          console.log("Random number: " + choose);
+          //message.channel.send(message + emojis[choose]);
           
         //Start the upload process
         /*
@@ -86,7 +87,7 @@ client.on("message", message => {
             if (err){
               message.channel.send("error" +err.message)
             }
-            message.channel.send("Your message was sent succesfully");
+            message.channel.send("Your message was sent successfully");
           });
         */
       } else{
