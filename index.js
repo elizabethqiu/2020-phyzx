@@ -39,9 +39,6 @@ client.on("message", message => {
   const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 //2020-11-26T15:35:09.475197+00:00 app[web.1]: Error: Cannot find module 'dotenv'
-  if(command == 'hi'){
-    message.channel.send('hi, elizabeth');
-  }
 
   
   if(message.channel.type === 'dm'){    
@@ -73,9 +70,9 @@ client.on("message", message => {
       //Attempt to find the room the user wants to send the message to
       if(type === "em"){
         //Send the message to that room
-          const channel = client.channels.cache.get('770332770148155392');
+          const channel = client.channels.cache.get('781548324628463617');
           channel.send(question);
-          message.channel.send("Your message was sent succesfully");
+          message.channel.send("Your message was sent you noobs");
         //Start the upload process
         /*
           var sql = 'INSERT INTO questions (subject, question, userid) VALUES ($1,$2,$3)'
