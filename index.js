@@ -41,7 +41,7 @@ client.on("message", message => {
 
   //2020-11-26T15:35:09.475197+00:00 app[web.1]: Error: Cannot find module 'dotenv'
 
-  if(message.channel.type === 'dm'){    
+  if(message.channel.type === 'dm') {    
 
     //The command is ask (for us +ask)
     if(command === 'ask'){
@@ -50,7 +50,7 @@ client.on("message", message => {
         // need to connect to database here!!!!
         var arrayLength = args.length;
         // If you don't have atleast 2 arguments do nothing
-        if(!arrayLength >= 2){
+        if (!arrayLength >= 2) {
           message.channel.send("Not enough arguments");
           return;
         }
@@ -68,7 +68,7 @@ client.on("message", message => {
         }
       
       // Attempt to find the room the user wants to send the message to
-      if(type === "em") {
+      if (type === "em") {
         // Send the message to that room
           const channel = client.channels.cache.get('781548324628463617');
           channel.send(question);
@@ -81,7 +81,7 @@ client.on("message", message => {
         /*
           var sql = 'INSERT INTO questions (subject, question, userid) VALUES ($1,$2,$3)'
           var values = [data.subject,data.question,data.userid]
-        //upload the message into the db
+        // upload the message into the db
           pool.query(sql,values, (err,results) => {
             if (err){
               message.channel.send("error" +err.message)
@@ -89,16 +89,18 @@ client.on("message", message => {
             message.channel.send("Your message was sent succesfully");
           });
         */
-      }else{
-          message.channel.send('Subject not found');
+      } else{
+          message.channel.send('Channel not found: possible ones include em, mech, p1');
       }
-    }else{
-        message.channel.send('Command not found. Use +help for more info');
+    } if (command == 'help'){
+      message.channel.send('Usage: /ask <channel> <message>');
+    } else {
+        message.channel.send('Command not found. Use /help for more info');
     }
-  }
-  else{
+  } else {
       message.channel.send('I\'m sorry, thats not very anon of you');
   }
-
+  
 });
+
 client.login(process.env.DISCORD_BOT_TOKEN);
