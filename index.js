@@ -1,4 +1,4 @@
-require('dotenv').config(); 
+//require('dotenv').config(); 
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.login(process.env.DISCORD_BOT);
@@ -38,7 +38,7 @@ client.on("message", message => {
   // This is the usual argument parsing we love to use.
   const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-
+//2020-11-26T15:35:09.475197+00:00 app[web.1]: Error: Cannot find module 'dotenv'
   if(command == 'ping'){
     message.channel.send('pong');
   }
