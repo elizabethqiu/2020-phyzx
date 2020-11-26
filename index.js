@@ -1,7 +1,7 @@
 //require('dotenv').config(); 
 const Discord = require("discord.js");
 const client = new Discord.Client();
-client.login(process.env.DISCORD_BOT);
+//client.login(process.env.DISCORD_BOT_TOKEN);
 
 /*
 const Pool = require('pg').Pool; // pool connects to database via databaseurl stored on heroku
@@ -99,5 +99,4 @@ client.on("message", message => {
   */
 
 });
-
-client.login(process.env.CLIENT_TOKEN); //client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.DISCORD_BOT_TOKEN);
