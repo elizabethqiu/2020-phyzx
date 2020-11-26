@@ -74,10 +74,10 @@ client.on("message", message => {
           channel.send(question);
           /* var emojis = ['🎉','🧲','⚛️','🛠️','👌','🙊','👏','🙌','✌','🙏','👀','🤩','😎','😄','😳','😩','🥺','😀','😏','😤','🤔','😅','🤣','😁','😋','🥰','🥵','😱','👍','💯','✅','💬'];
           */
-          var message = "Message sent ";
+          var text = "Message sent ";
           //var choose = Math.floor(Math.random() * Math.floor(emojis.length));
           //console.log("Random number: " + choose);
-          message.channel.send(message + ":magnet:");
+          message.channel.send(text + ":magnet:");
           
         //Start the upload process
         /*
