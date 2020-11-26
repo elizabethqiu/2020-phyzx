@@ -72,11 +72,12 @@ client.on("message", message => {
         // Send the message to that room
           const channel = client.channels.cache.get('781548324628463617');
           channel.send(question);
-          var emojis = ['🎉','🧲','⚛️','🛠️','👌','🙊','👏','🙌','✌','🙏','👀','🤩','😎','😄','😳','😩','🥺','😀','😏','😤','🤔','😅','🤣','😁','😋','🥰','🥵','😱','👍','💯','✅','💬'];
+          /* var emojis = ['🎉','🧲','⚛️','🛠️','👌','🙊','👏','🙌','✌','🙏','👀','🤩','😎','😄','😳','😩','🥺','😀','😏','😤','🤔','😅','🤣','😁','😋','🥰','🥵','😱','👍','💯','✅','💬'];
+          */
           var message = "Message sent ";
-          var choose = Math.floor(Math.random() * Math.floor(emojis.length));
-          console.log("Random number: " + choose);
-          //message.channel.send(message + emojis[choose]);
+          //var choose = Math.floor(Math.random() * Math.floor(emojis.length));
+          //console.log("Random number: " + choose);
+          message.channel.send(message + ":magnet:");
           
         //Start the upload process
         /*
@@ -93,8 +94,6 @@ client.on("message", message => {
       } else{
           message.channel.send('Channel not found: possible ones include em, mech, p1');
       }
-    } if (command == 'help'){
-      message.channel.send('Usage: /ask <channel> <message>');
     } else {
         message.channel.send('Command not found. Use /help for more info');
     }
