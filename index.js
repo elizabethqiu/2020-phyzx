@@ -3,13 +3,14 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 client.login(process.env.DISCORD_BOT);
 
+/*
 const Pool = require('pg').Pool; // pool connects to database via databaseurl stored on heroku
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL
 });
-
-
+*/
 client.on("ready", () => {
+  /*
   pool.connect((err, client, release) => { 
     if (err) { 
         return console.error( 
@@ -24,10 +25,12 @@ client.on("ready", () => {
         console.log("Connected to Database!") 
     }); 
   });
+  */
   console.log("I am ready!"); 
 });
 ////////////////////////////////////// left off here
 client.on("message", message => {
+  
   if (message.author.bot) return;
   // The process.env.PREFIX is your bot's prefix in this case.
   if (message.content.indexOf(process.env.PREFIX) !== 0) return;
@@ -35,7 +38,12 @@ client.on("message", message => {
   // This is the usual argument parsing we love to use.
   const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  
+
+  if(command == 'ping'){
+    message.channel.send('pong');
+  }
+
+  /*
   //If a question is dm'd to the bot
   if(message.channel.type === 'dm'){    
 
@@ -88,6 +96,8 @@ client.on("message", message => {
   else{
       message.channel.send('I\'m sorry, thats not very anon of you');
   }
+  */
+
 });
 
 client.login(process.env.CLIENT_TOKEN); //client.login(process.env.DISCORD_TOKEN);
