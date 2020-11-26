@@ -43,8 +43,7 @@ client.on("message", message => {
     message.channel.send('pong');
   }
 
-  /*
-  //If a question is dm'd to the bot
+  
   if(message.channel.type === 'dm'){    
 
     //The command is ask (for us +ask)
@@ -76,7 +75,9 @@ client.on("message", message => {
         //Send the message to that room
           const channel = client.channels.cache.get('770332770148155392');
           channel.send(question);
+          message.channel.send("Your message was sent succesfully");
         //Start the upload process
+        /*
           var sql = 'INSERT INTO questions (subject, question, userid) VALUES ($1,$2,$3)'
           var values = [data.subject,data.question,data.userid]
         //upload the message into the db
@@ -86,6 +87,7 @@ client.on("message", message => {
             }
             message.channel.send("Your message was sent succesfully");
           });
+        */
       }else{
           message.channel.send('Subject not found');
       }
@@ -96,7 +98,6 @@ client.on("message", message => {
   else{
       message.channel.send('I\'m sorry, thats not very anon of you');
   }
-  */
 
 });
 client.login(process.env.DISCORD_BOT_TOKEN);
