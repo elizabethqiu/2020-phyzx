@@ -28,7 +28,7 @@ client.on("ready", () => {
   */
   console.log("I am ready!"); 
 });
-////////////////////////////////////// left off here
+
 client.on("message", message => {
   
   if (message.author.bot) return;
@@ -38,41 +38,45 @@ client.on("message", message => {
   // This is the usual argument parsing we love to use.
   const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-//2020-11-26T15:35:09.475197+00:00 app[web.1]: Error: Cannot find module 'dotenv'
 
-  
+  //2020-11-26T15:35:09.475197+00:00 app[web.1]: Error: Cannot find module 'dotenv'
+
   if(message.channel.type === 'dm'){    
 
     //The command is ask (for us +ask)
     if(command === 'ask'){
 
         //Set values
-
+        // need to connect to database here!!!!
         var arrayLength = args.length;
-        //If you don't have atleast 2 arguments do nothing
+        // If you don't have atleast 2 arguments do nothing
         if(!arrayLength >= 2){
           message.channel.send("Not enough arguments");
           return;
         }
         var type = args[0];
         var question = "";
-        //Iterate over the arguments to form the question string
+        // Iterate over the arguments to form the question string
         for (var i = 1; i < arrayLength; i++) {
           question += args[i] + " ";
         }
-        //Store our values in a data object
+        // Store our values in a data object
         var data = {  
           userid : message.author.id,
           question : question,
           subject :  type,
         }
       
-      //Attempt to find the room the user wants to send the message to
-      if(type === "em"){
-        //Send the message to that room
+      // Attempt to find the room the user wants to send the message to
+      if(type === "em") {
+        // Send the message to that room
           const channel = client.channels.cache.get('781548324628463617');
           channel.send(question);
-          message.channel.send("Your message was sent you noobs");
+          var emojis = ['🎉','🧲','⚛️','🛠️','👌','🙊','👏','🙌','✌','🙏','👀','🤩','😎','😄','😳','😩','🥺','😀','😏','😤','🤔','😅','🤣','😁','😋','🥰','🥵','😱','👍','💯','✅','💬'];
+          var message = "Message sent ";
+          var choose = Math.floor(Math.random() * Math.floor(emojis.length));
+          message.channel.send(message + emojis[choose]);
+          
         //Start the upload process
         /*
           var sql = 'INSERT INTO questions (subject, question, userid) VALUES ($1,$2,$3)'
