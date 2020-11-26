@@ -39,8 +39,8 @@ client.on("message", message => {
   const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 //2020-11-26T15:35:09.475197+00:00 app[web.1]: Error: Cannot find module 'dotenv'
-  if(command == 'ping'){
-    message.channel.send('pong');
+  if(command == 'hi'){
+    message.channel.send('hi, elizabeth');
   }
 
   
