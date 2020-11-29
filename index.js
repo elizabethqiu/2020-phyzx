@@ -1,6 +1,9 @@
 //require('dotenv').config(); 
+import Pageclip from 'pageclip'
+const pageclipAPIKey = 'api_NB79IZZS221eWFO5EMryrNIWcF69d4k3'
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const pageclip = new Pageclip(api_NB79IZZS221eWFO5EMryrNIWcF69d4k3)
 //client.login(process.env.DISCORD_BOT_TOKEN);
 
 /*
@@ -71,6 +74,18 @@ client.on("message", message => {
       if (type === "em") {
         // Send the message to that room
           const channel = client.channels.cache.get('781548324628463617');
+          
+          //save data to a form
+          dat = [{user: message.author.id},{mes: question}]
+          pageclip.send(dat).then((response) => {
+            console.log(response.status, response.data) /
+          }).then(() => {
+            return pageclip.fetch()
+          }).then((response) => {
+            console.log(response.status, response.data) 
+          })
+
+          //send message to channel
           channel.send(question);
           var emojis = ['🎉','🧲','⚛️','🛠️','👌','🙊','👏','🙌','✌','🙏','👀','🤩','😎','😄','😳','😩','🥺','😀','😏','😤','🤔','😅','🤣','😁','😋','🥰','🥵','😱','👍','💯','✅','💬'];
           
