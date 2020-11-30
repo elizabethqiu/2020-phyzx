@@ -73,12 +73,12 @@ client.on("message", message => {
       // Attempt to find the room the user wants to send the message to
       if (type === "em") {
         // Send the message to that room
-          const channel = client.channels.cache.get('781548324628463617');
+          const channel = client.channels.cache.get('766400711596048474');
           
           //save data to a form
           dat = [{user: message.author.id},{mes: question}]
           pageclip.send(dat).then((response) => {
-            console.log(response.status, response.data) /
+            console.log(response.status, response.data) // => 200, [Item, Item]
           }).then(() => {
             return pageclip.fetch()
           }).then((response) => {
