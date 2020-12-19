@@ -14,6 +14,7 @@ const pool = new Pool({
 */
 client.on("ready", () => {
   /*
+  pgsql stuff
   pool.connect((err, client, release) => { 
     if (err) { 
         return console.error( 
